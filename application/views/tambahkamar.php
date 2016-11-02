@@ -1,6 +1,7 @@
-<?php $this->view('header');?>
+<?php $this->load->view('header'); ?>
+
     <div class="main-panel">
-		<nav class="navbar navbar-default">
+        <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle">
@@ -10,6 +11,17 @@
                         <span class="icon-bar bar3"></span>
                     </button>
                     <a class="navbar-brand" href="#">Tambah Kamar</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul  class="nav navbar-nav navbar-right">
+                      <li>
+                        <a href="#">
+      								    <i class="ti-exit"></i>
+      								        <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </nav>
@@ -24,7 +36,7 @@
                                 <h4 class="title">Tambah Kamar</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="<?php echo base_url(). 'Kamar/addkamar'; ?>" method="post">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -36,8 +48,8 @@
                                             <div class="form-group">
                                                 <label>Status Kamar</label>
                                                 <select class="form-control border-input" name="status">
-                                                  <option>Tersedia</option>
-                                                  <option>Tidak Tersedia</option>
+                                                  <option value="Tersedia">Tersedia</option>
+                                                  <option value="Tidak Tersedia">Tidak Tersedia</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -56,4 +68,4 @@
                 </div>
             </div>
         </div>
-<?php $this->view('footer')?>
+<?php $this->load->view('footer')?>

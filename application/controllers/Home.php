@@ -18,8 +18,13 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 function __construct(){
+		 parent::__construct();
+		 $this->load->model('Model_kamar');
+	 }
 	public function index()
 	{
-		$this->load->view('home');
+		$data['hitung_kamar']=$this->Model_kamar->hitung_kamar();
+		$this->load->view('home',$data);
 	}
 }

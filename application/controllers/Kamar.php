@@ -18,12 +18,28 @@ class Kamar extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct(){
+		parent::__construct();
+		$this->load->model('Model_kamar');
+	}
 	public function index()
 	{
-		$this->load->view('kamar');
+		$data['kamar']=$this->Model_kamar->tampil_data()->result();
+		$this->load->view('kamar',$data);
 	}
   public function tambahkamar()
   {
     $this->load->view('tambahkamar');
   }
+	public function addkamar()
+	{
+		$nama = $this->input->post('nama_kamar');
+		$status = $this->input->post('status');
+		$data = array(
+			'nama_kamar' => $nama,
+			'status' =>$status
+		);
+		$this->Model_kamar->input_data($data,'kamar');
+		redirect('Kamar');
+	}
 }

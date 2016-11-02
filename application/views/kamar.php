@@ -1,18 +1,29 @@
-<?php $this->view('header');?>
-<div class="main-panel">
-<nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar bar1"></span>
-                    <span class="icon-bar bar2"></span>
-                    <span class="icon-bar bar3"></span>
-                </button>
-                <a class="navbar-brand" href="#">Kamar</a>
+<?php $this->load->view('header'); ?>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Kamar</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul  class="nav navbar-nav navbar-right">
+                      <li>
+                        <a href="#">
+      								    <i class="ti-exit"></i>
+      								        <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
 
     <div class="content">
@@ -32,15 +43,23 @@
       </div>
         <div class="container-fluid">
             <div class="row">
-              <?php for($a=1;$a<=10;$a++){?>
+              <?php
+                foreach ($kamar as $km) {?>
                 <div class="col-lg-3 col-md-4">
                     <div class="card card-user">
-                        <div class="image" style="background-color:#D53F28;">
+                        <div class="image"
+                            <?php if($km->status=='Tersedia'){
+                              echo"style='background-color:#82CC00;'";
+                            }
+                            else{
+                                echo"style='background-color:#D53F28;'";
+
+                            }?>>
                         </div>
                         <div class="content">
                             <div class="author">
                               <img class="avatar border-white" src="<?php echo base_url(); ?>assets/img/faces/face-2.jpg" alt="..."/>
-                              <h4 class="title">No Kamar : <?php echo $a;?><br />
+                              <h4 class="title"><?php echo $km->nama_kamar;?><br />
                                  <a href="#"><small></small></a>
                               </h4>
                             </div>
@@ -51,13 +70,10 @@
                         <hr>
                         <div class="text-center">
                             <div class="row">
-                                <div class="col-md-3 col-md-offset-1">
-                                    <h5>12<br /><small>Files</small></h5>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <h5><?php echo $km->status;?><br /><small>Status</small></h5>
                                 </div>
-                                <div class="col-md-4">
-                                    <h5>2GB<br /><small>Used</small></h5>
-                                </div>
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <h5>24,6$<br /><small>Spent</small></h5>
                                 </div>
                             </div>

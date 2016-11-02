@@ -1,4 +1,5 @@
-<?php $this->view('header.php') ?>
+<?php $this->load->view('header'); ?>
+
     <div class="main-panel">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -11,8 +12,19 @@
                     </button>
                     <a class="navbar-brand" href="#">Dashboard</a>
                 </div>
+                <div class="collapse navbar-collapse">
+                    <ul  class="nav navbar-nav navbar-right">
+                      <li>
+                        <a href="#">
+      								    <i class="ti-exit"></i>
+      								        <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
+
 
         <div class="content">
             <div class="container-fluid">
@@ -28,15 +40,15 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Total Kamar</p>
-                                          10
+                                            <p>Jumlah Kamar</p>
+                                            <?php echo $hitung_kamar; ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-arrow-right"></i> Details
+                                        <a href="<?php echo base_url();?>Kamar"><i class="ti-arrow-right"></i> detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -53,15 +65,15 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Total Pemasukan</p>
-                                            Rp.0
+                                            <p>Pemasukan</p>
+                                            Rp. 0
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-arrow-right"></i> Details
+                                        <a href="<?php echo base_url();?>Pemasukan"><i class="ti-arrow-right"></i> detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +98,7 @@
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-arrow-right"></i> Details
+                                        <a href="<?php echo base_url();?>Keluhan"><i class="ti-arrow-right"></i> detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +110,7 @@
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-info text-center">
-                                            <i class="ti-announcement"></i>
+                                            <i class="ti-accnouncement"></i>
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
@@ -111,7 +123,7 @@
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-reload"></i> Updated now
+                                        <a href="<?php echo base_url();?>Pengumuman"><i class="ti-arrow-right"></i> detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -192,4 +204,5 @@
                 </div>
             </div>
         </div>
-<?php $this->view('footer.php'); ?>
+
+<?php $this->load->view('footer'); ?>
