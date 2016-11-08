@@ -74,7 +74,10 @@
                                     <h5><?php echo $km->status;?><br /><small>Status</small></h5>
                                 </div>
                                 <div class="col-md-5">
-                                    <h5>24,6$<br /><small>Spent</small></h5>
+                                  <h5>Aksi
+                                  <br>
+                                    <a href="Kamar/hapus_kamar/<?php echo $km->id_kamar;?>"><i class="ti-trash"></i></a>
+                                      <a href="Kamar/edit_kamar/<?php echo $km->id_kamar;?>"><i class="ti-pencil"></i></a></h5>
                                 </div>
                             </div>
                         </div>

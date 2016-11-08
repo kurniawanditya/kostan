@@ -42,4 +42,31 @@ class Kamar extends CI_Controller {
 		$this->Model_kamar->input_data($data,'kamar');
 		redirect('Kamar');
 	}
+	public function hapus_kamar($id)
+	{
+		$this->Model_kamar->hapus_kamar($id);
+ 		redirect('Kamar');
+	}
+	public function edit_kamar($id)
+	{
+		$where = array('id_kamar' => $id);
+		$data['kamar'] = $this->Model_kamar->edit_kamar($where,'kamar')->result();
+		$this->load->view('edit_kamar',$data);
+	}
+	function update_kamar(){
+		$id = $this->input->post('id_kamar');
+		$nama = $this->input->post('nama_kamar');
+		$status = $this->input->post('status');
+		$data = array(
+			'nama_kamar' => $nama,
+			'status' =>$status
+		);
+
+	$where = array(
+		'id_kamar' => $id
+	);
+
+	$this->Model_kamar->update_data($where,$data,'kamar');
+	redirect('Kamar');
+}
 }
