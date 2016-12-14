@@ -58,7 +58,7 @@
                         </div>
                         <div class="content">
                             <div class="author">
-                              <img class="avatar border-white" src="<?php echo base_url(); ?>assets/img/faces/face-2.jpg" alt="..."/>
+                              <a href="<?php echo base_url();?>Kamar/tambahpenghuni/<?php echo"$km->id_kamar";?>"><img class="avatar border-white" src="<?php echo base_url(); ?>assets/img/faces/face-2.jpg" alt="..."/></a>
                               <h4 class="title"><?php echo $km->nama_kamar;?><br />
                                  <a href="#"><small></small></a>
                               </h4>

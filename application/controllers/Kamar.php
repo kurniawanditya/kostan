@@ -68,5 +68,9 @@ class Kamar extends CI_Controller {
 
 	$this->Model_kamar->update_data($where,$data,'kamar');
 	redirect('Kamar');
-}
+	}
+	public function tambahpenghuni(){
+		 $this->load->view('add_penghuni');
+
+	}
 }
