@@ -73,4 +73,12 @@ class Kamar extends CI_Controller {
 		 $this->load->view('add_penghuni');
 
 	}
+	function detail(){
+		$data['kamar']=$this->Model_kamar->detail_penghuni()->result();
+		$this->load->view('detail_penghuni',$data);
+	}
+	function detailkamar($id){
+		$data['dp'] = $this->Model_kamar->detailkamar($id);
+		$this->load->view('detailkamar',$data);  
+	}
 }

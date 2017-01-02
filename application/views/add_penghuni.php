@@ -33,16 +33,23 @@
                     <div class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Tambah Penghuni</h4>
+                                <h4 class="title">Tambah Penghuni & Pemilihan Kamar</h4>
                                 <h4> Kamar No . 
                                 <?php
                                   $data=$this->uri->segment(3);
-                                  echo$data;?>
+                                  $harga=$this->uri->segment(4);
+                                  echo$data."<br>";
+                                  $angka=$harga;
+                                  $jadi = "Rp " . number_format($angka,2,',','.');
+                                  echo$jadi;?>
                                 </h4>
 
                             </div>
                             <div class="content">
-                                <form action="<?php echo base_url(). 'Kamar/'; ?>" method="post">
+                               <?php
+                                $attributes = array('name' => 'ex');
+                                echo form_open_multipart('Penghuni/tambahpenghuni',$attributes);?>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -51,10 +58,16 @@
                                                 <input type="text" class="form-control border-input"  placeholder="Nama Penghuni" name="nama_penghuni">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Pembayaran</label>
-                                                <input type="text" class="form-control border-input"  placeholder="Input Pembayaran" name="pembayaran">
+                                                <input type="text" class="form-control border-input"  placeholder="Input Pembayaran" name="pembayaran" OnKeyUp="hitung()">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Kurang</label>
+                                                <input type="text" class="form-control border-input"  placeholder="Input kurang" name="kurang">
                                             </div>
                                         </div>
                                     </div>
@@ -81,4 +94,13 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            function hitung() {
+                harga = 600000;
+               pembayaran = document.ex.pembayaran.value;
+               hasil = parseInt(harga) - parseInt(pembayaran);
+               //alert(hasil);
+               document.ex.kurang.value=hasil;
+            }
+        </script>
 <?php $this->load->view('footer')?>

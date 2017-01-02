@@ -33,7 +33,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="card card-user">
                     <div class="nav-tool">
-                        <a href="<?php echo base_url();?>Kamar/Tambahkamar"><button type="submit" class="btn btn-success btn-fill btn-wd">Tambah Kamar</button></a>
+                        <a href="<?php echo base_url();?>Kamar/Tambahkamar"><button type="submit" class="btn btn-success btn-fill btn-wd">Tambah Kamar </button></a>
                     </div>
                 </div>
             </div>
@@ -58,24 +58,28 @@
                         </div>
                         <div class="content">
                             <div class="author">
-                              <a href="<?php echo base_url();?>Kamar/tambahpenghuni/<?php echo"$km->id_kamar";?>"><img class="avatar border-white" src="<?php echo base_url(); ?>assets/img/faces/face-2.jpg" alt="..."/></a>
-                              <h4 class="title"><?php echo $km->nama_kamar;?><br />
-                                 <a href="#"><small></small></a>
+                               <?php if($km->status=='Tersedia'){ ?>
+                                    <a href="<?php echo base_url();?>Kamar/tambahpenghuni/<?php echo"$km->id_kamar/$km->harga";?>"><img class="avatar border-white" src="<?php echo base_url(); ?>assets/img/9734832.jpg" alt="..."/></a>
+                               <?php }
+                                else { ?>
+                                    <a href="<?php echo base_url();?>Kamar/detailkamar/<?php echo"$km->id_kamar";?>"><img class="avatar border-white" src="<?php echo base_url(); ?>assets/img/9734832.jpg" alt="..."/></a>                
+
+                                <?php } ?>
+                            
+                                <h4 class="title"><?php echo $km->nama_kamar;?><br />
+                                 <small><?php 
+                                 $angka=$km->harga;
+                                  $jadi = "Rp " . number_format($angka,2,',','.');
+
+                                 echo $jadi; ?>/bulan</small>
                               </h4>
                             </div>
-                            <p class="description text-center">
-
-                            </p>
                         </div>
                         <hr>
                         <div class="text-center">
                             <div class="row">
-                                <div class="col-md-5 col-md-offset-1">
-                                    <h5><?php echo $km->status;?><br /><small>Status</small></h5>
-                                </div>
-                                <div class="col-md-5">
-                                  <h5>Aksi
-                                  <br>
+                                <div class="col-md-12">
+                                  <h5>
                                     <a href="Kamar/hapus_kamar/<?php echo $km->id_kamar;?>"><i class="ti-trash"></i></a>
                                       <a href="Kamar/edit_kamar/<?php echo $km->id_kamar;?>"><i class="ti-pencil"></i></a></h5>
                                 </div>
@@ -87,7 +91,4 @@
             </div>
         </div>
     </div>
-
-
-
 <?php $this->view('footer');?>

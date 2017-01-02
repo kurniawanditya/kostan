@@ -8,7 +8,7 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
+                <a href="http://localhost/kos/" class="simple-text">
                     Sistem Informasi Kostan
                 </a>
             </div>
@@ -24,6 +24,12 @@
                       <a href="<?php echo base_url();?>Kamar">
                         <i class="ti-home"></i>
                         <p>Kamar</p>
+                    </a>
+                </li>
+                 <li <?php if($u=='Penghuni'){echo "class='active'";} ?>>
+                      <a href="<?php echo base_url();?>Penghuni">
+                        <i class="ti-user"></i>
+                        <p>Penghuni</p>
                     </a>
                 </li>
                 <li <?php if($u=='Pemasukan'){echo "class='active'";} ?>>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Pemasukan extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,18 +20,12 @@ class Home extends CI_Controller {
 	 */
 	 function __construct(){
 		 parent::__construct();
-		 $this->load->model('Model_kamar');
-		 //$this->load->model('Model_keuangan');
-		 $this->load->model('Model_keluhan');
-		 $this->load->model('Model_pengumuman');
+		 $this->load->model('Model_pemasukan');
 
 	 }
 	public function index()
-	{
-		$data['hitung_kamar']=$this->Model_kamar->hitung_kamar();
-		//$data['hitung_keuangan']=$this->Model_keuangan->hitung_keuangan();
-		$data['hitung_keluhan']=$this->Model_keluhan->hitung_keluhan();
-		$data['hitung_pengumuman']=$this->Model_pengumuman->hitung_pengumuman();
-		$this->load->view('home',$data);
+	{	
+		$data['pemasukan']=$this->Model_pemasukan->tampilpemasukan();
+		$this->load->view('pemasukan',$data);
 	}
 }
