@@ -81,4 +81,28 @@ class Kamar extends CI_Controller {
 		$data['dp'] = $this->Model_kamar->detailkamar($id);
 		$this->load->view('detailkamar',$data);  
 	}
+	function keluar(){
+		echo$id_kamar = $this->input->post('kamar');
+		echo$penghuni = $this->input->post('penghuni');
+		echo$status_kamar = $this->input->post('status_kamar');
+		echo$tagihan = $this->input->post('tagihan');
+		//update kamar
+		$condition['id_kamar']= $id_kamar;
+		$status = "Tersedia";
+        $data = array(
+			'status' => $status
+			);
+
+        //update kamar
+        $condition3['id_penghuni']= $penghuni;
+		$status = "tidak aktif";
+        $data2 = array(
+			'status' => $status
+			);
+
+
+		$condition2=$status_kamar;
+		$this->Model_kamar->keluarpenghuni($data,$data2,$condition,$condition2,$condition3); 
+
+	}
 }
